@@ -1,0 +1,58 @@
+﻿@page "/components/Icons"
+@using System.Reflection
+
+<DocsPage>
+    <DocsPageHeader Title="Icons" SubTitle="Guidance and suggestions for using icons with MudBlazor.">
+    </DocsPageHeader>
+    <DocsPageContent>
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Icons that are loaded by default</Title>
+                <Description>
+                    Mudblazor comes loaded with <MudLink Href="https://material.io/resources/icons/">Material Design icons</MudLink> as SVG's.<br />
+                    You can search the full list of the icons under <MudLink Href="/features/icons">MudBlazor Icons</MudLink> in the menu.</Description>
+            </SectionHeader>
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Usage</Title>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <IconsUsageExample />
+            </SectionContent>
+            <SectionSource Code="IconsUsageExample" GitHubFolderName="Icons"  />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Color</Title>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <IconsColorExample />
+            </SectionContent>
+            <SectionSource Code="IconsColorExample" GitHubFolderName="Icons"  />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Size</Title>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <IconsSizeExample />
+            </SectionContent>
+            <SectionSource Code="IconsSizeExample" GitHubFolderName="Icons"  />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Font Icons</Title>
+                <Description>MudIcon component will display any icon font that support ligatures.<br/>This are not loaded by default, for example you can use <MudLink Color="Color.Secondary" Href="https://fontawesome.com/">Font Awesome</MudLink></Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <IconsFontAwesomeExample />
+            </SectionContent>
+            <SectionSource Code="IconsFontAwesomeExample" GitHubFolderName="Icons"  />
+        </DocsPageSection>
+    </DocsPageContent>
+</DocsPage>

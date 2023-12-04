@@ -1,0 +1,105 @@
+﻿@page "/components/button"
+
+<DocsPage>
+    <DocsPageHeader Title="Button"
+                    SubTitle="A Material Design Button for actions, links and commands">
+        <Description>The <CodeInline>Mudbutton</CodeInline> component is a button with material design theme and comes with multiple functions.</Description>
+    </DocsPageHeader>
+    <DocsPageContent>
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Filled Buttons</Title>
+                <Description>Filled Buttons have elevation (box shadow) and is raised on click by default.</Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonFilledExample />
+            </SectionContent>
+            <SectionSource Code="ButtonFilledExample" GitHubFolderName="Button" />
+            <MudText Class="mt-6" GutterBottom="true">Elevation can be removed with the <CodeInline>DisableElevation</CodeInline> bool.</MudText>
+            <SectionContent Outlined="true">
+                <ButtonElevationExample />
+            </SectionContent>
+            <SectionSource Code="ButtonElevationExample" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Text Buttons</Title>
+                <Description>Text Buttons have no elevation, background or border and only hover effect is used. The <CodeInline>Color</CodeInline> property only applies to the text.</Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonTextExample />
+            </SectionContent>
+            <SectionSource Code="ButtonTextExample" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Outlined Buttons</Title>
+                <Description>Outlined Buttons are similar to Text Buttons except for the border that inherits its color from the set <CodeInline>Color</CodeInline> property.</Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonOutlinedExample />
+            </SectionContent>
+            <SectionSource Code="ButtonOutlinedExample" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>FullWidth</Title>
+                <Description>FullWidth buttons extend to 100% of available width.</Description>
+            </SectionHeader>
+            <SectionContent Outlined="true" FullWidth="true">
+                <ButtonFullWidthExample />
+            </SectionContent>
+            <SectionSource Code="ButtonFullWidthExample" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Sizes</Title>
+                <Description></Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonSizeExample />
+            </SectionContent>
+            <SectionSource Code="ButtonSizeExample" ShowCode="false" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Buttons with icons and label</Title>
+                <Description></Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonIconLabelExample />
+            </SectionContent>
+            <SectionSource Code="ButtonIconLabelExample" ShowCode="false" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Customized Buttons</Title>
+                <Description></Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonCustomizedExample />
+            </SectionContent>
+            <SectionSource Code="ButtonCustomizedExample" ShowCode="false" GitHubFolderName="Button" />
+        </DocsPageSection>
+
+        <DocsPageSection>
+            <SectionHeader>
+                <Title>Link Button</Title>
+                <Description>Set the <CodeInline>Link</CodeInline> parameter and the MudButton will render an anchor element. If you also set the <CodeInline>Target</CodeInline> parameter to <CodeInline>_blank</CodeInline>, the component will add <CodeInline>rel="noopener"</CodeInline> automatically.
+                If you set the <CodeInline>Disabled</CodeInline> parameter to <CodeInline>true</CodeInline>, the component will render a button with no <CodeInline>href</CodeInline> attribute.
+            
+            </Description>
+            </SectionHeader>
+            <SectionContent Outlined="true">
+                <ButtonLinkExample />
+            </SectionContent>
+            <SectionSource Code="ButtonLinkExample" ShowCode="true" GitHubFolderName="Button" />
+        </DocsPageSection>
+    </DocsPageContent>
+</DocsPage>

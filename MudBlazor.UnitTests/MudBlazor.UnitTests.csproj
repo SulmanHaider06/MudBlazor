@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Target Name="IncludeGeneratedFiles" BeforeTargets="BeforeBuild;BeforeRebuild">
+    <ItemGroup>
+      <Compile Include="Generated\ApiDocsTests.generated.cs" Condition="!Exists('Generated\ApiDocsTests.generated.cs')" />
+      <Compile Include="Generated\ExampleDocsTests.generated.cs" Condition="!Exists('Generated\ExampleDocsTests.generated.cs')" />
+    </ItemGroup>
+  </Target>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!--Is this a rebuild - Dont clean generated files as this breaks rebuild behaviour-->
+  <Target Name="ShouldCleanGeneratedFiles" BeforeTargets="BeforeRebuild">
+    <PropertyGroup>
+      <CleanGeneratedFiles>false</CleanGeneratedFiles>
+    </PropertyGroup>
+  </Target>
+  
+  <!--Cleanup old ExampleCode files-->
+  <Target Name="CleanGeneratedFiles" BeforeTargets="Clean" Condition="'$(CleanGeneratedFiles)' != 'false'">
+    <ItemGroup>
+      <FilesToClean Include="./Generated/*.generated.cs" />
+      <FilesToClean Include="./Generated/_AllApiPages.cs" />
+      <FilesToClean Include="./Generated/_AllComponents.cs" /> 
+    </ItemGroup>
+    <Delete Files="@(FilesToClean)" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="bunit" Version="1.0.0-preview-01" />
+    <PackageReference Include="coverlet.msbuild" Version="3.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="nunit" Version="3.13.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="ReportGenerator" Version="4.8.4" />
+    <PackageReference Include="RichardSzalay.MockHttp" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MudBlazor.Docs\MudBlazor.Docs.csproj" />
+    <ProjectReference Include="..\MudBlazor.Docs.Compiler\MudBlazor.Docs.Compiler.csproj" />
+    <ProjectReference Include="..\MudBlazor.UnitTests.Viewer\MudBlazor.UnitTests.Viewer.csproj" />
+    <ProjectReference Include="..\MudBlazor\MudBlazor.csproj" />
+  </ItemGroup>
+
+  <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest" Condition="'@(CoverletReport-&gt;Count())' != 0">
+    <ReportGenerator ReportFiles="@(CoverletReport)" TargetDirectory="./TestResults/Report" HistoryDirectory="./TestResults/ReportHistory" />
+  </Target>
+
+</Project>
